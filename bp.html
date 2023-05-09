@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Blood Pressure Monitor</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f5f5f5;
+		}
+		h1 {
+			font-size: 36px;
+			color: #444444;
+			text-align: center;
+			margin-top: 50px;
+		}
+		form {
+			margin-top: 50px;
+			text-align: center;
+		}
+		label {
+			font-size: 24px;
+			color: #444444;
+			margin-right: 10px;
+		}
+		input[type="text"] {
+			padding: 10px;
+			font-size: 18px;
+			border: 2px solid #cccccc;
+			border-radius: 5px;
+			margin-right: 10px;
+		}
+		input[type="submit"] {
+			padding: 10px;
+			font-size: 18px;
+			background-color: #008CBA;
+			color: #ffffff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.result {
+			margin-top: 50px;
+			text-align: center;
+			font-size: 24px;
+			color: #ffffff;
+			padding: 10px;
+			border-radius: 5px;
+			display: none;
+		}
+		.normal {
+			background-color: #008CBA;
+		}
+		.prehypertension {
+			background-color: #FFA500;
+		}
+		.stage1 {
+			background-color: #FF6347;
+		}
+		.stage2 {
+			background-color: #800000;
+		}
+		.hypertensive-crisis {
+			background-color: #B22222;
+		}
+		.warning {
+			font-size: 18px;
+			color: #FF6347;
+			margin-top: 10px;
+		}
+		.suggestion {
+			font-size: 18px;
+			color: #008CBA;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Blood Pressure Monitor</h1>
+	<form action="#" method="post" onsubmit="return false;">
+		<label for="systolic">Systolic:</label>
+		<input type="text" name="systolic" id="systolic" required>
+		<label for="diastolic">Diastolic:</label>
+		<input type="text" name="diastolic" id="diastolic" required>
+		<input type="submit" value="Submit" onclick="calculateBloodPressure()">
+	</form>
+	<div class="result normal" id="result">
+		Normal Blood Pressure
+	</div>
+	<div class="warning" id="warning"></div>
+	<div class="suggestion" id="suggestion"></div>
+
+	<script>
+		function calculateBloodPressure() {
+			var systolic = parseFloat(document.getElementById("systolic").value);
+			var diastolic = parseFloat(document.getElementById("diastolic").value);
+
+			var result = document.getElementById("result");
+			var warning = document.getElementById("warning");
+			var suggestion = document.getElementById("suggestion");
+
+			if (systolic < 120 && diastolic < 80) {
+				result.innerHTML = "Normal Blood Pressure";
+				result.classList.add("normal");
+				result
+            }else if (systolic >= 120 && systolic <= 129 && diastolic < 80) 
+            {
+                result.innerHTML = "Elevated Blood Pressure";
+                result.classList.add("prehypertension");
+                warning.innerHTML = "Your blood pressure is higher than normal but not yet in the hypertension range. It's important to monitor your blood pressure and make lifestyle changes if necessary.";
+                warning.style.display = "block";
+                suggestion.innerHTML = "Some lifestyle changes that can help lower your blood pressure include maintaining a healthy weight, exercising regularly, reducing salt and alcohol intake, and quitting smoking.";
+                suggestion.style.display = "block";
+                } 
+            else if ((systolic >= 130 && systolic <= 139) || (diastolic >= 80 && diastolic <= 89)) {
+                result.innerHTML = "Stage 1 Hypertension";
+                result.classList.add("stage1");
+                warning.innerHTML = "Your blood pressure is in the hypertension range, stage 1. This means that you have a higher risk of heart disease and stroke.";
+                warning.style.display = "block";
+                suggestion.innerHTML = "In addition to lifestyle changes, your doctor may prescribe medications to help lower your blood pressure.";
+                suggestion.style.display = "block";
+                } 
+            else if ((systolic >= 140 && systolic <= 180) || (diastolic >= 90 && diastolic <= 120)) {
+                result.innerHTML = "Stage 2 Hypertension";
+                result.classList.add("stage2");
+                warning.innerHTML = "Your blood pressure is in the hypertension range, stage 2. This means that you have a significantly higher risk of heart disease and stroke.";
+                warning.style.display = "block";
+                suggestion.innerHTML = "In addition to lifestyle changes, your doctor will likely prescribe medications to help lower your blood pressure.";
+                suggestion.style.display = "block";
+                } 
+            else if (systolic > 180 || diastolic > 120) {
+                result.innerHTML = "Hypertensive Crisis";
+                result.classList.add("hypertensive-crisis");
+                warning.innerHTML = "Your blood pressure is dangerously high and requires immediate medical attention. You may experience symptoms such as chest pain, shortness of breath, severe headache, or vision changes.";
+                warning.style.display = "block";
+                suggestion.innerHTML = "You should call emergency services or go to the nearest hospital as soon as possible.";
+                suggestion.style.display = "block";
+                }
+            result.style.display = "block";
+                }
+            </script>
+            </body>
+            </html>

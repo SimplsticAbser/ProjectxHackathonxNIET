@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Forgot Password</title>
+    <style>
+      /* CSS code for forgot password page */
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f1f1f1;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        color: #333;
+      }
+
+      form {
+        max-width: 500px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        color: #555;
+      }
+
+      input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+
+      .error {
+        color: red;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Forgot Password</h1>
+    <form action="forgot-password.php" method="post">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <input type="submit" value="Reset Password">
+      <p class="error">Error message goes here</p>
+    </form>
+  </body>
+</html>

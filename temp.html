@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Temperature Calculator</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		h1 {
+			text-align: center;
+			color: #333;
+		}
+		form {
+			width: 50%;
+			margin: 0 auto;
+			background-color: #fff;
+			padding: 20px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		label {
+			display: block;
+			margin-bottom: 5px;
+			font-weight: bold;
+			color: #666;
+		}
+		input[type="float"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			font-size: 16px;
+		}
+		input[type="submit"] {
+			background-color: #333;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		.warning {
+			color: red;
+			font-weight: bold;
+			margin-top: 20px;
+		}
+		.medicine {
+			margin-top: 20px;
+			padding: 10px;
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			margin-bottom: 20px;
+		}
+		.link {
+			display: block;
+			text-align: center;
+			margin-top: 30px;
+			color: #333;
+			font-weight: bold;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<h1>Temperature Calculator</h1>
+	<form>
+		<label for="temperature">Enter your temperature:</label>
+		<input type="float" id="temperature" name="temperature" required>
+
+		<input type="submit" value="Calculate">
+	</form>
+
+	<div id="result"></div>
+
+	<script>
+		const form = document.querySelector('form');
+		const result = document.querySelector('#result');
+
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const temperature = document.querySelector('#temperature').value;
+
+			if (temperature >= 100) {
+				result.innerHTML = '<div class="warning">Your temperature is high. Please consult a doctor.</div>';
+				result.innerHTML += '<div class="medicine">You can take paracetamol for relief.</div>';
+			} else if (temperature >98.6 && temperature < 100) {
+				result.innerHTML = '<div class="warning">Your temperature is slightly high. Please take rest and drink plenty of fluids.</div>';
+			} else {
+				result.innerHTML = '<div>Your temperature is normal.</div>';
+			}
+
+			result.innerHTML += '<a href="https://pharmeasy.in/" target="_blank" class="link">CLICK HERE TO ORDER MEDICINE</a>';
+		});
+	</script>
+</body>
+</html>

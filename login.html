@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background: #fff;
+			font-family: sans-serif;
+		}
+		.container {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 400px;
+			padding: 40px;
+			background: #fff;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(54, 199, 18, 0.753);
+		}
+		h2 {
+			margin: 0 0 20px;
+			padding: 0;
+			color: #333;
+			text-align: center;
+		}
+		input[type="text"], input[type="password"] {
+			width: 100%;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			margin: 10px 0;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			font-size: 16px;
+		}
+		input[type="submit"] {
+			width: 100%;
+			background: #3498db;
+			color: #fff;
+			border: none;
+			padding: 10px;
+			font-size: 18px;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background 0.3s ease;
+		}
+		input[type="submit"]:hover {
+			background: #2980b9;
+		}
+        
+        
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Login</h2>
+		<form>
+			<input type="text" placeholder="Username">
+			<input type="password" placeholder="Password">
+			<input type="submit" value="Login">
+            
+		</form>
+        <button onclick="location.href='pass.html';" type="button">Forgot Password?</button>
+
+        <button onclick="location.href='signup.html';" type="button">Not a user? Sign Up</button>
+
+	</div>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

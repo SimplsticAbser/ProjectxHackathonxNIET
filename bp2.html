@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylebp2.css">
+    <title>Blood Pressure Monitoring</title>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Blood Pressure Monitoring</h1>
+        <p>
+            Blood pressure is the force of blood against the walls of the arteries as the heart pumps it around the
+            body. It's measured in millimeters of mercury (mmHg) and is recorded with two numbers: systolic pressure and
+            diastolic pressure.
+            <!-- Add this img tag after the paragraph -->
+            <img src="C:\101\Screenshot (1).png" alt="Blood Pressure Monitoring"
+                class="center-image">
+
+        </p>
+
+        <h2>Systolic Pressure</h2>
+        <p>
+            Systolic pressure is the higher number and measures the force at which your heart pumps blood around your
+            body. A normal systolic pressure is below 120 mmHg.
+        </p>
+
+        <h2>Diastolic Pressure</h2>
+        <p>
+            Diastolic pressure is the lower number and represents the resistance to the blood flow in the blood vessels.
+            A normal diastolic pressure is below 80 mmHg.
+        </p>
+
+        <h2>Medicines for High Blood Pressure</h2>
+        <p>
+            Treatment for high blood pressure includes lifestyle changes and medication. Common medications include
+            diuretics, beta-blockers, ACE inhibitors, calcium channel blockers, and ARBs. Consult your doctor to
+            determine the appropriate treatment plan.
+        </p>
+
+        <div class="center">
+            <a href="https://en.wikipedia.org/wiki/Blood_pressure" class="redirect-button">Learn More About Blood
+                Pressure</a>
+        </div>
+
+        <h2>Enter Blood Pressure Data</h2>
+        <form id="bp-data-form">
+            <label for="systolic">Systolic Pressure:</label>
+            <input type="number" id="systolic" name="systolic" min="0" max="250" step="1" required>
+
+            <label for="diastolic">Diastolic Pressure:</label>
+            <input type="number" id="diastolic" name="diastolic" min="0" max="200" step="1" required>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="bp-result" id="bpResult" style="display: none;">
+            <h3>Your Blood Pressure:</h3>
+            <p id="bpResultText"></p>
+            <p id="bpResultAdvice"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('bp-data-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const systolic = parseInt(document.getElementById('systolic').value);
+            const diastolic = parseInt(document.getElementById('diastolic').value);
+            let resultText = '';
+            let resultAdvice = '';
+
+            if (systolic < 120 && diastolic < 80) {
+                resultText = 'Optimal Blood Pressure';
+                resultAdvice = 'Maintain a healthy lifestyle to keep your blood pressure in check.';
+            } else if (systolic >= 120 && systolic <= 129 && diastolic >= 80  && diastolic < 85 ) {
+                resultText = 'Normal Blood Pressure';
+                resultAdvice = 'Maintain a healthy lifestyle to keep your blood pressure in check.';
+            } else if ((systolic >= 130 && systolic <= 139) && (diastolic >= 85 && diastolic <= 89)) {
+                resultText = 'High Normal Blood Pressure';
+                resultAdvice = 'Monitor your blood pressure regularly and make lifestyle changes to lower it.';
+            } else if (systolic >= 140 && systolic <= 159 &&  diastolic >= 90 && diastolic < 100) {
+                resultText = 'Stage 1 Hypertension';
+                resultAdvice = 'Consult your doctor to discuss lifestyle changes and potential medications to lower your blood pressure.';
+            }else if (systolic >= 160 && systolic <= 179 &&  diastolic >= 100 && diastolic < 110) {
+                resultText = 'Stage 2 Hypertension';
+                resultAdvice = 'Consult your doctor to discuss lifestyle changes and potential medications to lower your blood pressure.';
+            }else if (systolic >= 180 || diastolic >= 110) {
+                resultText = 'Hypertensive Crisis';
+                resultAdvice = 'This is a medical emergency. Seek immediate medical attention.';
+            }
+            document.getElementById('bpResultText').innerText = resultText;
+            document.getElementById('bpResultAdvice').innerText = resultAdvice;
+            document.getElementById('bpResult').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

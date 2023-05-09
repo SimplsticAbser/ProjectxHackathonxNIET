@@ -1,0 +1,14 @@
+body {
+	font-family: Arial, sans-serif;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 50px;
+}
+
+#bp-chart {
+	width: 800px;
+	height: 400px;
+	margin: 50px auto;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalWatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">VitalWatch</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#support">Support</a></li>
+            </ul>
+            <button class="login-btn"><a href="login.html">login</a></button>
+            <button class="signup-btn"><a href="signup.html">Sign Up</a></button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Your Personal Health Monitoring Platform</h1>
+            <p>Monitor and analyze your vital parameters in real-time with intuitive graphical representations.</p>
+            <button class="get-started-btn">Get Started</button>
+        </section>
+        <div class="button-container">
+            <div class="loading-popup" id="loadingPopup">
+                <div class="loading-content">
+                    <div class="loading-spinner"></div>
+                    <p>Collecting and evaluating data...</p>
+                </div>
+            </div>
+            <button onclick="showLoadingPopupAndNavigate('hr2.html')">Heart Rate Monitoring</button>
+            <button onclick="showLoadingPopupAndNavigate('gl2.html')">Glucose level Monitoring</button>
+            <button onclick="showLoadingPopupAndNavigate('ol2.html')">Oxygen Level Monitoring</button>
+            <button onclick="showLoadingPopupAndNavigate('bt2.html')">Body Temperature Monitoring</button>
+            <button onclick="showLoadingPopupAndNavigate('bp2.html')">Blood Pressure Monitoring</button>
+        </div>
+        <!-- Add this code block after the 5 buttons -->
+        <div class="circular-image-buttons">
+            <a href="https://www.practo.com/consult" class="circular-image-button">
+                <div class="image-container">
+                <img src="https://th.bing.com/th/id/OIP.-ZwyxPlv_xqkMslE3RzvSQHaHa?pid=ImgDet&rs=1"
+                    alt="Image 1 Description">
+                </div>
+                    <span class="button-description">Consult A Doctor</span>
+            </a>
+            <a href="https://www.1mg.com" class="circular-image-button">
+                <div class="image-container">
+                <img src="https://medcolhealth.files.wordpress.com/2019/07/17191133.jpg?w=712&h=608" alt="Image 2 Description">
+            </div>
+            <span class="button-description">Order Medical Supplies</span>
+            </a>
+            <a href="https://example.com/destination2" class="circular-image-button">
+                <div class="image-container">
+                <img src="https://www.picoauto.com/images/uploads/screenshots/connect-device-icon.png" alt="Image 3 Description">
+                </div>
+                <span class="button-description">Connect Your Devices</span>
+            </a>
+        </div>
+
+
+        <section class="features" id="features">
+            <h2>Features</h2>
+            <div class="feature-container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://w7.pngwing.com/pngs/621/596/png-transparent-computer-icons-heart-rate-monitor-pulse-health-safe-red.png"
+                            alt="Tracking icon">
+                    </div>
+                    <h3>Track Various Parameters</h3>
+                    <p>Monitor blood pressure, body temperature, oxygen level, glucose level, and heart rate with
+                        seamless smartwatch integration.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://img.freepik.com/premium-vector/fast-time-logo-design-template_412311-3403.jpg?w=740"
+                            alt="Response time icon">
+                    </div>
+                    <h3>Fast Response Time</h3>
+                    <p>Get real-time updates on your vital parameters and receive alerts instantly, helping you take
+                        timely action.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="https://th.bing.com/th/id/OIP.87WFxVnEIi5kzu6GmJ76uwHaHa?pid=ImgDet&rs=1"
+                            alt="Customizable alerts icon">
+                    </div>
+                    <h3>Customizable Alerts</h3>
+                    <p>Set personalized alerts for specific vital parameters, ensuring you stay informed and take action
+                        when needed.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="support" id="support">
+            <h2>Support</h2>
+            <div class="support-container">
+                <div class="support-item">
+                    <h3>Email Support</h3>
+                    <p>For any questions or assistance, feel free to email us at:</p>
+                    <p><a href="mailto:help@vitalwatch.com">help@vitalwatch.com</a></p>
+                </div>
+
+                <div class="support-item">
+                    <h3>Contact Number</h3>
+                    <p>You can also reach us at:</p>
+                    <p>+919567338910</p>
+                </div>
+
+                <div class="support-item">
+                    <h3>Working Hours</h3>
+                    <p>Our support team is available:</p>
+                    <p>Monday - Friday: 9am - 6pm</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 VitalWatch. All Rights Reserved.</p>
+    </footer>
+    <script>
+        function showLoadingPopupAndNavigate(targetUrl) {
+            const loadingPopup = document.getElementById('loadingPopup');
+            loadingPopup.style.display = 'flex';
+
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 2000);
+        }
+    </script>
+    <!-- Floating Chat Button -->
+<div class="chat-button">
+    <button id="open-chat">Chat</button>
+</div>
+
+<!-- ChatGPT Dialog Box -->
+<div class="chat-dialog" id="chat-dialog">
+    <div class="chat-header">
+        <h3>Health Bot</h3>
+        <button id="close-chat">&times;</button>
+    </div>
+    <div class="chat-content">
+        <div class="messages" id="messages"></div>
+        <form id="chat-form">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    
+</div>
+<script>
+    const openChatBtn = document.getElementById('open-chat');
+    const closeChatBtn = document.getElementById('close-chat');
+    const chatDialog = document.getElementById('chat-dialog');
+
+    openChatBtn.addEventListener('click', () => {
+        chatDialog.style.display = 'block';
+    });
+
+    closeChatBtn.addEventListener('click', () => {
+        chatDialog.style.display = 'none';
+    });
+    
+</script>
+
+</body>
+
+</html>
